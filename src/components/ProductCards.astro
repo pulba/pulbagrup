@@ -1,0 +1,155 @@
+---
+import { Image } from "astro:assets";
+import jejakHero from "../assets/jejakbahagia_hero.png";
+import sekulahHero from "../assets/sekulah_hero.png";
+import desgoHero from "../assets/desgo_hero.png";
+import sobatHero from "../assets/SobatDeadline.png";
+
+const products = [
+    {
+        name: "Jejak Bahagia",
+        description:
+            "Undangan Pernikahan Digital Elegan & Modern. Solusi tepat untuk hari bahagia kamu mulai dari satu hari jadi.",
+        url: "https://jejakbahagia.com",
+        image: jejakHero,
+        icon: "💍",
+        color: "from-pink-500/20 to-rose-500/20",
+    },
+    {
+        name: "Sekulah",
+        description:
+            "Jasa Pembuatan Website Sekolah Profesional & Terintegrasi SPMB Online. Digitalisasi sekolah masa kini.",
+        url: "https://sekulah.pages.dev",
+        image: sekulahHero,
+        icon: "🏫",
+        color: "from-blue-500/20 to-indigo-500/20",
+    },
+    {
+        name: "Desgo",
+        description:
+            "Solusi Digitalisasi Desa Melalui Website Desa & Sistem Informasi Desa Mandiri untuk pelayanan publik.",
+        url: "https://desgo.pages.dev",
+        image: desgoHero,
+        icon: "🏘️",
+        color: "from-emerald-500/20 to-teal-500/20",
+    },
+    {
+        name: "Sobat Deadline",
+        description:
+            "Jasa Joki Skripsi, Makalah, Proposal & Desain Grafis. Partner terbaik selesaikan tugas akademik tepat waktu.",
+        url: "https://sobatdeadline.pages.dev",
+        image: sobatHero,
+        icon: "✍️",
+        color: "from-amber-500/20 to-orange-500/20",
+    },
+];
+---
+
+<section id="produk" class="py-24 relative overflow-hidden">
+    <div class="container mx-auto px-6 relative z-10">
+        <div
+            class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+        >
+            <div class="max-w-2xl">
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+                    Layanan Unggulan Kami
+                </h2>
+                <p class="text-lg text-slate-400">
+                    Jelajahi berbagai solusi digital yang kami tawarkan untuk
+                    membantu pertumbuhan bisnis dan efisiensi operasional Anda.
+                </p>
+            </div>
+            <div class="flex gap-2">
+                <div class="h-1 w-12 bg-indigo-500 rounded-full"></div>
+                <div class="h-1 w-4 bg-slate-700 rounded-full"></div>
+                <div class="h-1 w-4 bg-slate-700 rounded-full"></div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {
+                products.map((product) => (
+                    <a
+                        href={product.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="group relative flex flex-col h-full bg-slate-900/40 backdrop-blur-md border border-white/5 rounded-md overflow-hidden transition-all duration-500 hover:border-indigo-500/30 hover:-translate-y-3 hover:shadow-2xl hover:shadow-indigo-500/10"
+                    >
+                        {/* Image Container */}
+                        <div class="aspect-[4/3] overflow-hidden relative">
+                            <div
+                                class={`absolute inset-0 bg-gradient-to-br ${product.color} z-10 opacity-60 group-hover:opacity-20 transition-opacity duration-500`}
+                            />
+                            <Image
+                                src={product.image}
+                                alt={product.name}
+                                width={800}
+                                height={600}
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            />
+                            <div class="absolute top-4 right-4 z-20 bg-black/40 backdrop-blur-md p-3 rounded-2xl border border-white/10 opacity-0 group-hover:opacity-100 transition-all translate-y-2 group-hover:translate-y-0">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5 text-white"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                    />
+                                </svg>
+                            </div>
+                        </div>
+
+                        {/* Content */}
+                        <div class="p-8 flex flex-col flex-grow relative">
+                            <div class="absolute -top-10 left-8 w-20 h-20 bg-slate-900 rounded-3xl border border-white/5 flex items-center justify-center text-4xl shadow-xl z-20 group-hover:border-indigo-500/30 transition-colors">
+                                {product.icon}
+                            </div>
+
+                            <div class="mt-8 mb-4">
+                                <h3 class="text-2xl font-bold group-hover:text-indigo-400 transition-colors duration-300">
+                                    {product.name}
+                                </h3>
+                            </div>
+
+                            <p class="text-slate-400 text-sm leading-relaxed mb-8 flex-grow">
+                                {product.description}
+                            </p>
+
+                            <div class="pt-6 border-t border-white/5 mt-auto">
+                                <div class="flex items-center gap-2 text-indigo-400 font-semibold text-sm group-hover:gap-3 transition-all">
+                                    Lihat Selengkapnya
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="w-4 h-4"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                        />
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </div>
+
+    {/* Decorative Elements */}
+    <div
+        class="absolute top-1/2 left-0 w-64 h-64 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"
+    >
+    </div>
+</section>

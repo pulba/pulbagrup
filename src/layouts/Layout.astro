@@ -1,0 +1,67 @@
+---
+import "../styles/global.css";
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="description"
+			content="Pulba Grup - Solusi Digital Terpadu"
+		/>
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Pulba Grup</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body
+		class="bg-[#0f172a] text-slate-50 font-['Outfit',sans-serif] selection:bg-indigo-500/30"
+	>
+		<div
+			class="fixed top-[-100px] right-[-100px] w-[500px] h-[500px] bg-indigo-600/15 blur-[100px] rounded-full -z-10"
+		>
+		</div>
+		<div
+			class="fixed bottom-[-100px] left-[-100px] w-[500px] h-[500px] bg-pink-600/15 blur-[100px] rounded-full -z-10"
+		>
+		</div>
+
+		<slot />
+
+		<footer
+			class="border-t border-white/10 py-12 mt-20 text-center text-slate-400 text-sm"
+		>
+			<div class="container mx-auto px-6">
+				<p>&copy; {currentYear} Pulba Grup. All rights reserved.</p>
+			</div>
+		</footer>
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 60%
+		);
+	}
+</style>
