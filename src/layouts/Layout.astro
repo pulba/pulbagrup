@@ -1,67 +1,181 @@
 ---
 import "../styles/global.css";
+import { Image } from "astro:assets";
+import logo from "../assets/logo-pulba.png";
 
 interface Props {
-	title: string;
+	title?: string;
 }
 
-const { title } = Astro.props;
+const { title = "Solusi Digital Terpadu" } = Astro.props;
 const currentYear = new Date().getFullYear();
 ---
 
 <!doctype html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 	<head>
 		<meta charset="UTF-8" />
 		<meta
 			name="description"
-			content="Pulba Grup - Solusi Digital Terpadu"
+			content="Pulba Digital - Ekosistem Solusi Terpadu untuk Bisnis, Pendidikan, dan Digitalisasi Masa Depan."
 		/>
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Pulba Grup</title>
+		<title>{title} | Pulba Digital</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
 			rel="stylesheet"
 		/>
 	</head>
 	<body
-		class="bg-[#0f172a] text-slate-50 font-['Outfit',sans-serif] selection:bg-indigo-500/30"
+		class="bg-[#f8fafc] text-[#031b4d] font-['Outfit',sans-serif] selection:bg-[#0084ff]/20 selection:text-[#031b4d] min-h-screen flex flex-col antialiased"
 	>
-		<div
-			class="fixed top-[-100px] right-[-100px] w-[500px] h-[500px] bg-indigo-600/15 blur-[100px] rounded-full -z-10"
+		{/* Swiss Minimalist Top Bar / Navigation */}
+		<header
+			class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#e2e8f0]"
 		>
-		</div>
-		<div
-			class="fixed bottom-[-100px] left-[-100px] w-[500px] h-[500px] bg-pink-600/15 blur-[100px] rounded-full -z-10"
-		>
+			<div
+				class="max-w-7xl mx-auto px-4 sm:px-6 h-20 md:h-22 flex items-center justify-between gap-4"
+			>
+				{/* Brand Logo with exact aspect ratio */}
+				<a
+					href="/"
+					class="flex items-center gap-3 py-2 transition-transform duration-200 hover:scale-[1.02] focus:outline-hidden"
+					aria-label="Pulba Digital Beranda"
+				>
+					<Image
+						src={logo}
+						alt="Pulba Digital Logo"
+						width={360}
+						height={153}
+						class="h-10 sm:h-12 md:h-14 w-auto object-contain"
+						loading="eager"
+					/>
+				</a>
+
+				{/* Swiss Navigation Links */}
+				<nav class="hidden md:flex items-center gap-8 text-xs font-mono font-bold uppercase tracking-[0.16em] text-[#5b6777]">
+					<a
+						href="#produk"
+						class="transition-colors hover:text-[#0084ff] flex items-center gap-1.5 py-1"
+					>
+						<span class="text-[#0084ff] font-mono text-[10px]">01 //</span> Layanan
+					</a>
+					<a
+						href="#tentang"
+						class="transition-colors hover:text-[#0084ff] flex items-center gap-1.5 py-1"
+					>
+						<span class="text-[#0084ff] font-mono text-[10px]">02 //</span> Filosofi
+					</a>
+					<a
+						href="https://wa.me/6281532094978"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="transition-colors hover:text-[#0084ff] flex items-center gap-1.5 py-1"
+					>
+						<span class="text-[#0084ff] font-mono text-[10px]">03 //</span> Kontak
+					</a>
+				</nav>
+
+				{/* Status Badge & Primary CTA */}
+				<div class="flex items-center gap-3 sm:gap-4">
+					<div class="hidden lg:flex items-center gap-2 px-3 py-1.5 text-[11px] font-mono font-semibold tracking-wider uppercase bg-slate-100/80 border border-[#e2e8f0] rounded-sm text-[#031b4d]">
+						<span class="h-2 w-2 rounded-full bg-[#0084ff] animate-pulse"></span>
+						System Active
+					</div>
+					<a
+						href="https://wa.me/6281532094978"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 bg-[#031b4d] text-white text-xs font-mono font-bold uppercase tracking-wider rounded-sm transition-all duration-200 hover:bg-[#0084ff] hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
+					>
+						<span>Hubungi Kami</span>
+						<span class="font-mono text-sm leading-none">&rarr;</span>
+					</a>
+				</div>
+			</div>
+		</header>
+
+		{/* Main Content */}
+		<div class="flex-grow">
+			<slot />
 		</div>
 
-		<slot />
+		{/* Swiss Minimalist Grid Footer */}
+		<footer class="border-t border-[#e2e8f0] bg-white mt-24">
+			<div class="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+				<div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-12 mb-16">
+					{/* Col 1: Brand & Identity */}
+					<div class="md:col-span-5 space-y-4">
+						<Image
+							src={logo}
+							alt="Pulba Digital Logo"
+							width={300}
+							height={128}
+							class="h-10 md:h-12 w-auto object-contain"
+						/>
+						<p class="text-sm text-[#5b6777] leading-relaxed max-w-sm pt-2">
+							Membangun solusi digital terpadu dengan standar presisi tinggi, desain fungsional, dan arsitektur modern untuk kemajuan ekosistem Anda.
+						</p>
+					</div>
 
-		<footer
-			class="border-t border-white/10 py-12 mt-20 text-center text-slate-400 text-sm"
-		>
-			<div class="container mx-auto px-6">
-				<p>&copy; {currentYear} Pulba Grup. All rights reserved.</p>
+					{/* Col 2: Index Layanan */}
+					<div class="md:col-span-4 space-y-3">
+						<div class="text-xs font-mono uppercase tracking-[0.2em] text-[#0084ff] font-bold">
+							// 01 Index Layanan
+						</div>
+						<ul class="space-y-2 text-sm text-[#031b4d] font-medium">
+							<li>
+								<a href="https://jejakbahagia.com" target="_blank" class="hover:text-[#0084ff] transition-colors flex items-center justify-between border-b border-slate-100 pb-1.5">
+									<span>Jejak Bahagia — Wedding Digital</span>
+									<span class="font-mono text-xs text-[#5b6777]">&nearr;</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://sekulah.pages.dev" target="_blank" class="hover:text-[#0084ff] transition-colors flex items-center justify-between border-b border-slate-100 pb-1.5">
+									<span>Sekulah — Platform Website Sekolah</span>
+									<span class="font-mono text-xs text-[#5b6777]">&nearr;</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://desgo.pages.dev" target="_blank" class="hover:text-[#0084ff] transition-colors flex items-center justify-between border-b border-slate-100 pb-1.5">
+									<span>Desgo — Sistem Informasi Desa</span>
+									<span class="font-mono text-xs text-[#5b6777]">&nearr;</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://sobatdeadline.pages.dev" target="_blank" class="hover:text-[#0084ff] transition-colors flex items-center justify-between border-b border-slate-100 pb-1.5">
+									<span>Sobat Deadline — Jasa Akademik & Kreatif</span>
+									<span class="font-mono text-xs text-[#5b6777]">&nearr;</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+
+					{/* Col 3: Technical Meta */}
+					<div class="md:col-span-3 space-y-3">
+						<div class="text-xs font-mono uppercase tracking-[0.2em] text-[#0084ff] font-bold">
+							// 02 Metadata
+						</div>
+						<div class="text-xs text-[#5b6777] space-y-2 font-mono">
+							<p><span class="text-[#031b4d] font-semibold">ESTABLISHED:</span> 2024</p>
+							<p><span class="text-[#031b4d] font-semibold">ARCHITECTURE:</span> ASTRO 7 + TAILWIND 4</p>
+							<p><span class="text-[#031b4d] font-semibold">RUNTIME:</span> BUN JS</p>
+							<p><span class="text-[#031b4d] font-semibold">LOCATION:</span> INDONESIA</p>
+							<p><span class="text-[#031b4d] font-semibold">RESPONSE TIME:</span> &lt; 15 MENIT</p>
+						</div>
+					</div>
+				</div>
+
+				{/* Bottom Bar */}
+				<div class="pt-8 border-t border-[#e2e8f0] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-[#5b6777]">
+					<p>&copy; {currentYear} Pulba Digital. Hak Cipta Dilindungi.</p>
+					<p class="uppercase tracking-wider">Swiss Minimalist Grid Standard</p>
+				</div>
 			</div>
 		</footer>
 	</body>
 </html>
-
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-</style>

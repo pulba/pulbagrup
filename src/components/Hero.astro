@@ -1,113 +1,114 @@
 ---
 import { Image } from "astro:assets";
-import logo from "../assets/favicon.png";
+import favicon from "../assets/favicon.png";
 ---
 
-<header
-    class="relative min-h-[80vh] flex items-center justify-center pt-32 pb-20 overflow-hidden"
->
-    {/* Grid Background (Jaring-jaring) */}
+<section class="relative border-b border-[#e2e8f0] bg-white overflow-hidden">
+    {/* Subtle Architectural Grid Lines */}
     <div
-        class="absolute inset-0 z-0 opacity-20 pointer-events-none"
-        style="background-image: radial-gradient(circle at 2px 2px, rgba(99, 102, 241, 0.2) 1px, transparent 0); background-size: 40px 40px;"
+        class="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style="background-size: 40px 40px; background-image: linear-gradient(to right, #031b4d 1px, transparent 1px), linear-gradient(to bottom, #031b4d 1px, transparent 1px);"
     >
     </div>
 
-    {/* Animated background elements */}
-    <div
-        class="absolute top-1/4 left-1/4 w-96 h-96 bg-indigo-500/10 blur-[120px] rounded-full animate-pulse-slow"
-    >
-    </div>
-    <div
-        class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-500/10 blur-[120px] rounded-full animate-pulse-slow [animation-delay:2s]"
-    >
-    </div>
-
-    <div class="container mx-auto px-6 relative z-10 text-center">
-        <div
-            class="inline-flex items-center gap-2 px-4 py-2 mb-8 text-xs font-bold tracking-[0.2em] text-indigo-400 uppercase bg-indigo-500/5 rounded-full border border-indigo-500/20 backdrop-blur-sm"
-        >
-            <span class="relative flex h-2 w-2">
-                <span
-                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"
-                ></span>
-                <span
-                    class="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"
-                ></span>
-            </span>
-            Professional Digital Ecosystem
-        </div>
-
-        <div class="flex justify-center mb-8">
-            <div class="relative group">
-                <div
-                    class="absolute -inset-4 bg-indigo-500/20 rounded-full blur-xl group-hover:bg-indigo-500/40 transition-all duration-500"
-                >
-                </div>
-                <Image
-                    src={logo}
-                    alt="Pulba Grup Logo"
-                    width={120}
-                    height={120}
-                    class="relative w-24 h-24 md:w-32 md:h-32 object-contain drop-shadow-2xl"
-                />
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-16 sm:pb-20 relative z-10">
+        {/* Top Meta Bar */}
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-8 sm:pb-12 border-b border-[#e2e8f0] text-xs font-mono uppercase tracking-[0.18em] text-[#5b6777]">
+            <div class="flex items-center gap-2.5">
+                <span class="text-[#0084ff] font-bold">// 00</span>
+                <span class="font-semibold text-[#031b4d]">PULBA DIGITAL ECOSYSTEM</span>
+            </div>
+            <div class="flex items-center gap-4 sm:gap-6 text-[11px] sm:text-xs">
+                <span>EST. 2024</span>
+                <span class="hidden sm:inline-block text-[#e2e8f0]">|</span>
+                <span class="hidden sm:inline-block">INTERNATIONAL TYPOGRAPHIC STANDARD</span>
             </div>
         </div>
 
-        <h1
-            class="text-7xl md:text-9xl font-extrabold tracking-tighter mb-8 leading-tight"
-        >
-            <span
-                class="inline-block bg-clip-text text-transparent bg-gradient-to-b from-white via-white to-white/40"
-            >
-                Pulba
-            </span>
-            <span
-                class="inline-block bg-clip-text text-transparent bg-gradient-to-tr from-indigo-400 to-indigo-600"
-            >
-                Grup
-            </span>
-        </h1>
+        {/* Main Hero Grid */}
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 pt-10 sm:pt-16 items-start">
+            {/* Left / Top Headline Column */}
+            <div class="lg:col-span-8 space-y-6 sm:space-y-8">
+                {/* Brand Badge with Monogram */}
+                <div class="inline-flex items-center gap-3 p-1.5 pr-4 bg-slate-50 border border-[#e2e8f0] rounded-full shadow-xs">
+                    <Image
+                        src={favicon}
+                        alt="Pulba Monogram"
+                        width={48}
+                        height={48}
+                        class="w-7 h-7 rounded-full object-cover border border-[#0084ff]/30 shadow-xs"
+                    />
+                    <span class="text-xs font-mono font-semibold tracking-wider text-[#031b4d] uppercase">
+                        Presisi Teknis &bull; Desain Fungsional
+                    </span>
+                    <span class="h-1.5 w-1.5 rounded-full bg-[#0084ff]"></span>
+                </div>
 
-        <p
-            class="text-xl md:text-2xl text-slate-400 font-light max-w-3xl mx-auto leading-relaxed mb-12"
-        >
-            Membangun masa depan digital melalui <span
-                class="text-white font-medium italic"
-                >ekosistem solusi terintegrasi</span
-            > untuk bisnis, pendidikan, dan pemberdayaan masyarakat.
-        </p>
+                <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-[-0.04em] text-[#031b4d] leading-[0.98] sm:leading-[0.95] uppercase">
+                    Transformasi <br />
+                    <span class="text-[#0084ff]">Digital</span> Terpadu.
+                </h1>
 
-        <div class="flex flex-wrap items-center justify-center gap-6">
-            <a
-                href="#produk"
-                class="px-10 py-5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-2xl transition-all duration-300 shadow-xl shadow-indigo-600/20 hover:shadow-indigo-600/40 hover:-translate-y-1"
-            >
-                Jelajahi Solusi
-            </a>
-            <a
-                href="https://wa.me/6281532094978"
-                class="px-10 py-5 bg-white/5 hover:bg-white/10 text-white font-bold rounded-2xl transition-all duration-300 border border-white/10 backdrop-blur-md"
-            >
-                Konsultasi Gratis
-            </a>
+                <p class="text-base sm:text-lg md:text-xl text-[#5b6777] font-normal leading-relaxed max-w-2xl">
+                    Membangun ekosistem teknologi yang efisien, handal, dan estetik untuk kebutuhan bisnis, institusi pendidikan, pemerintahan desa, hingga kebutuhan akademik.
+                </p>
+
+                {/* Minimalist CTA Buttons */}
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4 pt-2 sm:pt-4">
+                    <a
+                        href="#produk"
+                        class="inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-[#031b4d] text-white text-xs font-mono font-bold uppercase tracking-wider rounded-sm transition-all duration-200 hover:bg-[#0084ff] hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 group"
+                    >
+                        <span>Jelajahi 4 Platform</span>
+                        <span class="font-mono transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+                    </a>
+                    <a
+                        href="https://wa.me/6281532094978"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-white text-[#031b4d] text-xs font-mono font-bold uppercase tracking-wider rounded-sm border border-[#031b4d] transition-all duration-200 hover:bg-slate-50 hover:border-[#0084ff] hover:text-[#0084ff]"
+                    >
+                        <span>Konsultasi Proyek</span>
+                        <span class="font-mono text-xs text-[#0084ff]">&nearr;</span>
+                    </a>
+                </div>
+            </div>
+
+            {/* Right Asymmetric Specification & Metric Box */}
+            <div class="lg:col-span-4 border border-[#e2e8f0] bg-[#f8fafc] p-6 sm:p-8 rounded-sm space-y-6 sm:space-y-8">
+                <div>
+                    <div class="text-[11px] font-mono text-[#0084ff] uppercase tracking-[0.2em] font-bold mb-2 sm:mb-3">
+                        // SPECIFICATION SUMMARY
+                    </div>
+                    <div class="space-y-3 sm:space-y-4 text-xs sm:text-sm text-[#5b6777]">
+                        <p class="leading-relaxed">
+                            Fokus pada arsitektur web modern, performa tinggi, dan pengalaman pengguna yang intuitif dengan pendekatan modularitas.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-[#e2e8f0]">
+                    <div class="p-4 bg-white border border-[#e2e8f0] rounded-sm">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-[#031b4d] font-mono">04</div>
+                        <div class="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#5b6777] mt-1">Platform Aktif</div>
+                    </div>
+                    <div class="p-4 bg-white border border-[#e2e8f0] rounded-sm">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-[#0084ff] font-mono">100%</div>
+                        <div class="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#5b6777] mt-1">Dedicated Support</div>
+                    </div>
+                </div>
+
+                <div class="p-3.5 sm:p-4 bg-white border border-[#e2e8f0] rounded-sm flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-[#031b4d] uppercase tracking-wide">Infrastruktur</div>
+                        <div class="text-[11px] text-[#5b6777] font-mono mt-0.5">High Performance Cloud</div>
+                    </div>
+                    <span class="text-xs font-mono text-[#0084ff] font-bold flex items-center gap-1.5">
+                        <span class="h-2 w-2 rounded-full bg-[#0084ff] animate-pulse"></span>
+                        READY
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
-</header>
-
-<style>
-    @keyframes pulse-slow {
-        0%,
-        100% {
-            opacity: 0.3;
-            transform: scale(1);
-        }
-        50% {
-            opacity: 0.6;
-            transform: scale(1.1);
-        }
-    }
-    .animate-pulse-slow {
-        animation: pulse-slow 8s ease-in-out infinite;
-    }
-</style>
+</section>
